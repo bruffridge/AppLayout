@@ -1,0 +1,436 @@
+@charset "utf-8";
+/* Default site styles. */
+
+/*for centering the page on high resolution screens*/
+div#middle, div#top, div#bottom {
+	text-align: center;
+}
+
+div#footer, div#header, div#body {
+	/*width: expression(this.width > 1280 ? 1280: (this.width < 800 ? 800: true));
+	max-width: 1280px;
+	min-width: 0px;*/
+	
+  position:relative;
+	margin: 0 auto;
+	text-align: left;
+	/*border-left: 1px solid black;
+	border-right: 1px solid black;*/
+}
+
+html, body, div#container, div#top, div#middle, div#bottom {
+	/*width: expression(this.width < 800 ? 800: true);
+	min-width: 0px;*/
+}
+
+/* site styles */
+
+html, body {
+	background-color: #F3F3F3;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+a { text-decoration:none; color: #205AA7; }
+a:hover { text-decoration:underline; }
+
+.hidden {
+	display: none !important;
+}
+
+/* header styles */
+
+div#top {
+	/*border-bottom: 2px solid #9a9a9a;*/
+	background: #2E2E2E; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', endColorStr='#1d1d1d'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#1d1d1d)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #666666,  #1d1d1d); /* for firefox 3.6+ */ 
+}
+
+div#header img{
+	margin: 5px;
+}
+
+div#header h1 {
+	display: inline;
+	/*border: 1px solid black;*/
+}
+
+div#header img, div#header h1 {
+	vertical-align: middle;
+}
+
+div#header h1 {
+	margin-right: 3%;
+	color: #E5E5E5;
+	font-family: 'DroidSansRegular', Arial, Helvetica, sans-serif;
+	font-size: 1.45em;
+}
+
+/* nav styles */
+
+div#nav, div#nav > ul, div#nav > ul > li, div#nav > ul > li > a, div#nav li.menu > div {
+	display:inline-block;
+	/* fix for IE 7 and below unsupport for inline-block */
+	zoom: 1;
+  *display: inline;
+}
+
+div#nav {
+	vertical-align: bottom;
+	background-color: #666666;
+	border-left: 1px solid #1d1d1d;
+	border-right: 1px solid #1d1d1d;
+	border-top: 1px solid #1d1d1d;
+}
+
+div#nav > ul > li > a, div#nav li.menu > div, div#nav li.menu ul li a {
+	padding: .60em .8em .55em .8em;
+	text-decoration: none;
+	font-size: .75em;
+	color: #F3F3F3;
+	cursor: pointer;
+	/*border-right: 1px solid #1d1d1d;*/
+}
+
+div#nav > ul > li > a:hover, div#nav li.menu > div:hover, div#nav > ul > li > a:focus {
+	background-color: #737373;
+	color: #FFFFFF;
+/*	background-color: #F3F3F3;*/
+/*	color: #1d1d1d;*/
+	
+}
+
+/*div#nav li.menu ul {
+	display: none;
+}*/
+
+/* sub menu styles */
+
+div#nav li.menu ul {
+	margin-left: -1000em;
+	display:block;
+	position:absolute;
+	background-color: #F3F3F3;
+	z-index:1000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	min-width: 200px;
+}
+
+/*div#nav li.menu ul li {
+	float:left;
+	clear:both;
+	width:100%;
+}*/
+
+div#nav li.menu > a:focus, div#nav li.menu.sfhover > a {
+	background-color: #F3F3F3;
+	color: #000;
+	border-left: 1px solid #000;
+}
+
+div#nav li.menu > a:focus .arrow-down, div#nav li.menu.sfhover > a .arrow-down {
+	border-top: 5px solid #000;
+}
+
+div#nav li.menu > a:focus + ul, div#nav li.menu.sfhover ul {
+	margin-left: 0;
+}
+
+div#nav li.menu ul a:focus{
+	position:relative;
+	left: 1333.4em;
+	background-color: #F3F3F3;
+}
+
+div#nav li.menu.sfhover ul a:focus{
+	position:relative;
+	left: 0;
+}
+
+div#nav li.menu ul li, div#nav li.menu ul li a {
+	display: block;
+	color: #000;
+}
+
+div#nav li.menu ul li a:hover, div#nav li.menu ul li a:focus {
+	color: #F3F3F3;
+	background-color: #737373;
+}
+
+div#nav li.menu > div.open {
+	background-color: #F3F3F3;
+	color: #000;
+	border-left: 1px solid #000;
+}
+
+div#nav li.menu > div.open .arrow-down {
+	border-top: 5px solid #000;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #F3F3F3;
+	position:relative;
+	top: -1px;
+	margin-left: 7px;
+	display:inline-block;
+	/* fix for IE 7 and below unsupport for inline-block */
+	zoom: 1;
+	*display: inline;	
+}
+
+/* logout button */
+
+a#logout{
+    display:block;
+	position: absolute;
+	right:0;
+	top:0;
+    float:left;
+    background:#8F3429;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#E3604E', endColorStr='#8F3429'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#E3604E), to(#8F3429)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #E3604E, #8F3429 ); /* for firefox 3.6+ */ 
+	border:1px solid #3A1812;
+    font-size:100%;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#3B1C14;
+    cursor:pointer;
+    padding:0em .50em .2em .55em; /* Links */
+}
+
+a#logout:hover, a#logout:focus{
+	background:#8F3429;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#FB6B5D', endColorStr='#8F3429'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FB6B5D), to(#8F3429)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FB6B5D, #8F3429 ); /* for firefox 3.6+ */
+}
+a#logout:active{
+    background:#A33C31;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#A33C31', endColorStr='#B35745'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#A33C31), to(#B35745)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #A33C31, #B35745 ); /* for firefox 3.6+ */
+    color:#341912;
+}
+
+/* body styles */
+
+div#body {
+	font-size:.75em;
+	padding: 7px;
+}
+
+.validation li {
+	list-style-type: circle;
+	margin-left: 20px;
+}
+
+/* footer styles */
+
+div#bottom {
+	/*vertically centers the text*/
+	line-height:2em;
+	border-top: 2px solid #9a9a9a;
+	background-color: #2e2e2e;
+}
+
+div#footer {
+	color: #E5E5E5;
+	font-size: .7em;
+	overflow: auto;
+	background-color: #2e2e2e;
+}
+
+div#footer a{
+	color: #99CCFF;
+}
+
+div#footerLeftCont {
+	float: left;
+	width:100%;
+}
+
+div#footerLeft {
+	margin-right:14em;
+	text-align:center;
+	overflow: hidden;
+}
+
+div#footerRight {
+	float:left;
+	width:14em;
+	margin-left:-14em;
+}
+
+div#footerRight a {
+	display:block;
+	color: #E5E5E5;
+}
+
+div#footerRight a:hover {
+	text-decoration:none;
+	color: #FFFFFF;
+	/*background-color: #3A3A3A;*/
+}
+
+div#footerRight a:focus {
+	outline: none;
+}
+
+/*a:active {
+  outline: none;
+}*/
+
+
+div#footerRight a span {
+	display:inline-block;
+	/* fix for IE 7 and below unsupport for inline-block */
+	zoom: 1;
+  *display: inline;	
+	width: 2.455em;
+	height:2.455em;
+	overflow:hidden;
+	vertical-align:middle;
+	margin-right: 5px;
+}
+
+div#footerRight a:hover span img, div#footerRight a:focus span img {
+	margin-left: -2.455em;
+}
+
+/*keep footer at the bottom of short length pages*/
+html, body {
+	height:100%;
+	/*border-left:1px solid blue;*/
+}
+
+div#container {
+	height: expression(this.height < 100% ? 100%: true);
+	min-height:100%;
+	position:relative;
+	/*border-left:1px solid green;*/
+}
+
+div#middle {
+	padding-bottom: 2em;
+}
+
+div#bottom {
+	width:100%;
+  height:2em;
+  position:absolute;
+  bottom:0;
+	/*border-left:1px solid red;*/
+}
+
+/*message box styles*/
+
+.info, .success, .warning, .error, .validation {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+.info {
+color: #00529B;
+background-color: #BDE5F8;
+background-image: url('icons/info_32.png');
+}
+.success {
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url('icons/accepted_32.png');
+}
+.warning {
+color: #9F6000;
+background-color: #FEEFB3;
+background-image: url('icons/warning_34.png');
+}
+.error {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('icons/cancel_32.png');
+}
+
+.validation {
+color: #D63301;
+background-color: #FFCCBA;
+background-image: url('icons/validation_32.png');
+}
+
+/* fonts */
+
+@font-face {
+    font-family: 'ArimoRegular';
+    src: url('fonts/Arimo/Arimo-Regular-Latin-webfont.eot');
+    src: url('fonts/Arimo/Arimo-Regular-Latin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Arimo/Arimo-Regular-Latin-webfont.woff') format('woff'),
+         url('fonts/Arimo/Arimo-Regular-Latin-webfont.ttf') format('truetype'),
+         url('fonts/Arimo/Arimo-Regular-Latin-webfont.svg#ArimoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArimoItalic';
+    src: url('fonts/Arimo/Arimo-Italic-Latin-webfont.eot');
+    src: url('fonts/Arimo/Arimo-Italic-Latin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Arimo/Arimo-Italic-Latin-webfont.woff') format('woff'),
+         url('fonts/Arimo/Arimo-Italic-Latin-webfont.ttf') format('truetype'),
+         url('fonts/Arimo/Arimo-Italic-Latin-webfont.svg#ArimoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArimoBold';
+    src: url('fonts/Arimo/Arimo-Bold-Latin-webfont.eot');
+    src: url('fonts/Arimo/Arimo-Bold-Latin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Arimo/Arimo-Bold-Latin-webfont.woff') format('woff'),
+         url('fonts/Arimo/Arimo-Bold-Latin-webfont.ttf') format('truetype'),
+         url('fonts/Arimo/Arimo-Bold-Latin-webfont.svg#ArimoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArimoBoldItalic';
+    src: url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.eot');
+    src: url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.woff') format('woff'),
+         url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.ttf') format('truetype'),
+         url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.svg#ArimoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DroidSansRegular';
+    src: url('fonts/DroidSans/DroidSans-webfont.eot?') format('eot'),
+         url('fonts/DroidSans/DroidSans-webfont.woff') format('woff'),
+         url('fonts/DroidSans/DroidSans-webfont.ttf') format('truetype'),
+         url('fonts/DroidSans/DroidSans-webfont.svg#webfontw7zqO19G') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DroidSansBold';
+    src: url('fonts/DroidSans/DroidSans-Bold-webfont.eot?') format('eot'),
+         url('fonts/DroidSans/DroidSans-Bold-webfont.woff') format('woff'),
+         url('fonts/DroidSans/DroidSans-Bold-webfont.ttf') format('truetype'),
+         url('fonts/DroidSans/DroidSans-Bold-webfont.svg#webfontSOhoM6aS') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

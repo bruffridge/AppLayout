@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="styles/reset-min.css" />
+<link rel="stylesheet" type="text/css" href="styles/site.css" />
+<!--keep footer at the bottom of short length pages. IE6 fix.-->
+<!--[if lt IE 7]><style type="text/css">div##container {height:100%;}</style><![endif]-->
+<title>App Layout</title>
+</head>
+<body>
+	<div id="container">
+    <div id="top">
+      <div id="header">
+        <img src="images/logo.png" alt="Site logo" style="width:3.188em; height:2.625em;" />
+		  <!--tabindex on anchor tags is needed for submenus to function in safari and chrome.-->
+        <h1>App Layout</h1><div id="nav"><ul><li><a href="#" tabindex="10">Link 1</a></li><li><a href="#" tabindex="11">Link 2</a></li><li class="menu"><a href="javascript:void(0);" tabindex="12">Submenus<span class="arrow-down"></span></a><ul><li><a href="#" tabindex="13">Submenu Item 1</a></li><li><a href="#" tabindex="14">Submenu Item 2</a></li></ul></li></ul></div><!--end nav--></div><!--end header-->
+    	<a id="logout" href="#" title="Logout">x</a>
+    </div><!--end top-->
+    <div id="middle">
+      <div id="body">
+      	
+	  </div> <!--end div#body-->
+    </div> <!--end div#middle-->
+    <div id="bottom">
+      <div id="footer">
+        <div id="footerLeftCont"><div id="footerLeft">Author: <a href="#">Me</a> | Application Last Updated: January 10, 2012 | <a href="#">Privacy Policy</a></div></div>
+        <div id="footerRight"><a href="#"><span><img src="images/power.jpg" style="width:4.909em; height:2.455em;" alt="green light" /></span>Powered by MyTeam</a></div>
+      </div>
+    </div>
+  </div><!--end div#container-->
+  
+<script src="includes/scripts/jquery-1.4.4.min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+sfHover = function() {
+	var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onfocus=function() {
+			this.className+=(this.className.length>0? " ": "") + "sfhover";
+		}
+		sfEls[i].onfocusout=function() {
+			this.className=this.className.replace(new RegExp("( ?|^)sfhover\\b"), "");
+		}
+	}
+}
+mcAccessible = function() {
+	var mcEls = document.getElementById("nav").getElementsByTagName("A");
+	for (var i=0; i<mcEls.length; i++) {
+		mcEls[i].onfocus=function() {
+			this.className+=(this.className.length>0? " ": "") + "sffocus"; //a:focus
+			this.parentNode.className+=(this.parentNode.className.length>0? " ": "") + "sfhover"; //li < a:focus
+			if(this.parentNode.parentNode.parentNode.nodeName == "LI") {
+				this.parentNode.parentNode.parentNode.className+=(this.parentNode.parentNode.parentNode.className.length>0? " ": "") + "sfhover"; //li < ul < li < a:focus
+				if(this.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "LI") {
+					this.parentNode.parentNode.parentNode.parentNode.parentNode.className+=(this.parentNode.parentNode.parentNode.parentNode.parentNode.className.length>0? " ": "") + "sfhover"; //li < ul < li < ul < li < a:focus
+				}
+			}
+		}
+		mcEls[i].onblur=function() {
+			this.className=this.className.replace(new RegExp("( ?|^)sffocus\\b"), "");
+			this.parentNode.className=this.parentNode.className.replace(new RegExp("( ?|^)sfhover\\b"), "");
+			if(this.parentNode.parentNode.parentNode.nodeName == "LI") {
+				this.parentNode.parentNode.parentNode.className=this.parentNode.parentNode.parentNode.className.replace(new RegExp("( ?|^)sfhover\\b"), "");
+				if(this.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "LI") {
+					this.parentNode.parentNode.parentNode.parentNode.parentNode.className=this.parentNode.parentNode.parentNode.parentNode.parentNode.className.replace(new RegExp("( ?|^)sfhover\\b"), "");
+				}
+			}
+		}
+	}
+}
+
+// only ie needs the sfHover script. all need the accessibility script...
+// thanks http://www.brothercake.com/site/resources/scripts/onload/
+if(window.addEventListener) window.addEventListener('load', mcAccessible, false); // gecko, safari, konqueror and standard
+else if(document.addEventListener) document.addEventListener('load', mcAccessible, false); // opera 7
+else if(window.attachEvent) { // win/ie
+	window.attachEvent('onload', sfHover);
+	window.attachEvent('onload', mcAccessible);
+} else { // mac/ie5
+	if(typeof window.onload == 'function') {
+		var existing = onload;
+		window.onload = function() {
+			existing();
+			sfHover();
+			mcAccessible();
+		}
+	} else {
+		window.onload = function() {
+			sfHover();
+			mcAccessible();
+		}
+	}
+}
+
+//--><!]]></script>
+
+</body>
+</html>
