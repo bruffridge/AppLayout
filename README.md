@@ -23,7 +23,7 @@ Since it is responsive, it adjusts to look good on mobile devices as well. These
     <link rel="stylesheet" type="text/css" href="styles/mobile.css" media="screen and (max-width:600px)" />
     <meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     
-The mobile stylesheet makes the footer a single column and increases the padding around the navigation items to make them more tabbable.
+The mobile stylesheet makes the footer a single column and increases the padding around the navigation items to make them more tappable.
 
 This layout was tested on Safari on iPhone 4. Not sure how it looks on other mobile devices.
 
