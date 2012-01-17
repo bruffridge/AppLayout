@@ -1,0 +1,22 @@
+div#nav > ul > li > a, div#nav li.menu > div, div#nav li.menu ul li a {
+/*	border-right: 1px solid #1d1d1d;
+	border-bottom: 1px solid #1d1d1d;
+	border-top: 1px solid #1d1d1d;*/
+}
+
+div#footerLeft {
+	margin-right: 0px;
+}
+
+div#footerRight {
+	display:block;
+	float:none;
+	margin-left: 0px;
+	width: 100%;
+	text-align:center;
+}
+
+/* nav styles */
+div#nav > ul > li > a, div#nav li.menu > div, div#nav li.menu ul li a {
+	padding: 1em .8em .95em .8em;
+}

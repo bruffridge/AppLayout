@@ -9,7 +9,7 @@ div#middle, div#top, div#bottom {
 div#footer, div#header, div#body {
 	/*width: expression(this.width > 1280 ? 1280: (this.width < 800 ? 800: true));
 	max-width: 1280px;
-	min-width: 0px;*/
+	min-width: 800px;*/
 	
   position:relative;
 	margin: 0 auto;
@@ -20,7 +20,7 @@ div#footer, div#header, div#body {
 
 html, body, div#container, div#top, div#middle, div#bottom {
 	/*width: expression(this.width < 800 ? 800: true);
-	min-width: 0px;*/
+	min-width: 800px;*/
 }
 
 /* site styles */
@@ -331,87 +331,7 @@ div#bottom {
 	/*border-left:1px solid red;*/
 }
 
-/*message box styles*/
-
-.info, .success, .warning, .error, .validation {
-border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
-}
-.info {
-color: #00529B;
-background-color: #BDE5F8;
-background-image: url('icons/info_32.png');
-}
-.success {
-color: #4F8A10;
-background-color: #DFF2BF;
-background-image:url('icons/accepted_32.png');
-}
-.warning {
-color: #9F6000;
-background-color: #FEEFB3;
-background-image: url('icons/warning_34.png');
-}
-.error {
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('icons/cancel_32.png');
-}
-
-.validation {
-color: #D63301;
-background-color: #FFCCBA;
-background-image: url('icons/validation_32.png');
-}
-
 /* fonts */
-
-@font-face {
-    font-family: 'ArimoRegular';
-    src: url('fonts/Arimo/Arimo-Regular-Latin-webfont.eot');
-    src: url('fonts/Arimo/Arimo-Regular-Latin-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Arimo/Arimo-Regular-Latin-webfont.woff') format('woff'),
-         url('fonts/Arimo/Arimo-Regular-Latin-webfont.ttf') format('truetype'),
-         url('fonts/Arimo/Arimo-Regular-Latin-webfont.svg#ArimoRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'ArimoItalic';
-    src: url('fonts/Arimo/Arimo-Italic-Latin-webfont.eot');
-    src: url('fonts/Arimo/Arimo-Italic-Latin-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Arimo/Arimo-Italic-Latin-webfont.woff') format('woff'),
-         url('fonts/Arimo/Arimo-Italic-Latin-webfont.ttf') format('truetype'),
-         url('fonts/Arimo/Arimo-Italic-Latin-webfont.svg#ArimoItalic') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'ArimoBold';
-    src: url('fonts/Arimo/Arimo-Bold-Latin-webfont.eot');
-    src: url('fonts/Arimo/Arimo-Bold-Latin-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Arimo/Arimo-Bold-Latin-webfont.woff') format('woff'),
-         url('fonts/Arimo/Arimo-Bold-Latin-webfont.ttf') format('truetype'),
-         url('fonts/Arimo/Arimo-Bold-Latin-webfont.svg#ArimoBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'ArimoBoldItalic';
-    src: url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.eot');
-    src: url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.woff') format('woff'),
-         url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.ttf') format('truetype'),
-         url('fonts/Arimo/Arimo-BoldItalic-Latin-webfont.svg#ArimoBoldItalic') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'DroidSansRegular';
@@ -419,17 +339,6 @@ background-image: url('icons/validation_32.png');
          url('fonts/DroidSans/DroidSans-webfont.woff') format('woff'),
          url('fonts/DroidSans/DroidSans-webfont.ttf') format('truetype'),
          url('fonts/DroidSans/DroidSans-webfont.svg#webfontw7zqO19G') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'DroidSansBold';
-    src: url('fonts/DroidSans/DroidSans-Bold-webfont.eot?') format('eot'),
-         url('fonts/DroidSans/DroidSans-Bold-webfont.woff') format('woff'),
-         url('fonts/DroidSans/DroidSans-Bold-webfont.ttf') format('truetype'),
-         url('fonts/DroidSans/DroidSans-Bold-webfont.svg#webfontSOhoM6aS') format('svg');
     font-weight: normal;
     font-style: normal;
 
