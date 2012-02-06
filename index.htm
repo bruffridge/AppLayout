@@ -4,9 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="styles/reset-min.css" />
-<link rel="stylesheet" type="text/css" href="styles/site.css" />
-<link rel="stylesheet" type="text/css" href="styles/mobile.css" media="screen and (max-width:600px)" />
+<link rel="stylesheet" type="text/css" href="styles/css/main.css" />
+<link rel="stylesheet" type="text/css" href="styles/css/mobile.css" media="screen and (max-width:600px)" />
 <meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 <!--keep footer at the bottom of short length pages. IE6 fix.-->
 <!--[if lt IE 7]><style type="text/css">div##container {height:100%;}</style><![endif]-->
@@ -16,10 +15,9 @@
 	<div id="container">
     <div id="top">
       <div id="header">
+      	<a id="logout" href="#" title="Logout">x</a>
         <img src="images/logo.png" alt="Site logo" style="width:3.188em; height:2.625em;" />
-		  <!--tabindex on anchor tags is needed for submenus to function in safari and chrome.-->
-        <h1>App Layout</h1><div id="nav"><ul><li><a href="#" tabindex="10">Link 1</a></li><li><a href="#" tabindex="11">Link 2</a></li><li class="menu"><a href="javascript:void(0);" tabindex="12">Submenus<span class="arrow-down"></span></a><ul><li><a href="#" tabindex="13">Submenu Item 1</a></li><li><a href="#" tabindex="14">Submenu Item 2</a></li></ul></li></ul></div><!--end nav--></div><!--end header-->
-    	<a id="logout" href="#" title="Logout">x</a>
+        <h1>App Layout</h1><div id="nav"><ul><li><a href="#">Link 1</a></li><li><a href="#">Link 2</a></li><li class="menu"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Submenus<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Submenu Item 1</a></li><li><a href="#">Submenu Item 2</a></li></ul></li></ul></div><!--end nav--></div><!--end header-->
     </div><!--end top-->
     <div id="middle">
       <div id="body">
@@ -34,7 +32,8 @@
     </div>
   </div><!--end div#container-->
   
-<script src="scripts/mcaccessible.js" type="text/javascript" language="javascript"></script>
+<script src="scripts/jquery-1.7.1.min.js" type="text/javascript" language="javascript"></script>
+<script src="scripts/bootstrap-dropdown.js" type="text/javascript" language="javascript"></script>
 
 </body>
 </html>
