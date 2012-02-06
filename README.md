@@ -1,6 +1,6 @@
 ## Documentation
 
-### Update
+#### Update
 
 The layout now compiles with [LESS](http://lesscss.org/)! I changed the dropdowns to use code from Twitter's Bootstrap modified slightly for my design. The documentation below will need to be updated to reflect these new changes.
 
