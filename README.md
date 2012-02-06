@@ -1,8 +1,12 @@
 ## Documentation
 
+### Update
+
+The layout now compiles with [LESS](http://lesscss.org/)! I changed the dropdowns to use code from Twitter's Bootstrap modified slightly for my design. The documentation below will need to be updated to reflect these new changes.
+
 ### Responsive
 
-This layout was designed to be [responsive](http://www.alistapart.com/articles/responsive-web-design/). By default it will fill 100% of the viewport. You can adjust this by uncommenting these lines in site.css:
+This layout was designed to be [responsive](http://www.alistapart.com/articles/responsive-web-design/). By default it will fill 100% of the viewport.
 
     div#footer, div#header, div#body {
       /*width: expression(this.width > 1280 ? 1280: (this.width < 800 ? 800: true));
