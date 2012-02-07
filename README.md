@@ -18,8 +18,8 @@ Then in these two blocks include a couple of mixins:
         .layoutInner(@layout);//fixed or fluid with defaults.
         ...
         
-    div#footer, div#header, div#body {        
-        .layoutInner(@layout);//fixed or fluid with defaults.
+    html, body, div#container, div#top, div#middle, div#bottom {
+        .layoutOuter(@layout);//fixed or fluid with defaults.
         ...
 
 This will result in a layout that expands to fill 100% of the viewport. You can also give it bounds by adding a couple of variables. Just uncomment these two lines in site.less:
@@ -33,7 +33,7 @@ Then modify these to:
         .layoutInner(@layout, @layoutMin, @layoutMax);
         ...
         
-    div#footer, div#header, div#body {        
+    html, body, div#container, div#top, div#middle, div#bottom {       
         .layoutOuter(@layout, @layoutMin);
         ...
 
@@ -48,7 +48,7 @@ Then modify these to:
         .layoutInner(@layout, @layoutWidth);
         ...
         
-    div#footer, div#header, div#body {        
+    html, body, div#container, div#top, div#middle, div#bottom {      
         .layoutOuter(@layout, @layoutWidth);
         ...
 
@@ -58,7 +58,7 @@ Then modify these to:
 
 Since it is responsive, it adjusts to look good on mobile devices as well. These two lines in index.htm's head section target mobile browsers.
 
-    <link rel="stylesheet" type="text/css" href="styles/mobile.css" media="screen and (max-width:600px)" />
+    <link rel="stylesheet" type="text/css" href="styles/css/mobile.css" media="screen and (max-width:600px)" />
     <meta name="viewport" id="view" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     
 The mobile stylesheet makes the footer a single column and increases the padding around the navigation items to make them more tappable.
