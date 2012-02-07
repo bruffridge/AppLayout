@@ -1,22 +1,58 @@
 ## Documentation
 
-**Update:** The layout now compiles with [LESS](http://lesscss.org/)! I changed the dropdowns to use code from Twitter's Bootstrap modified slightly for my design. The documentation below will need to be updated to reflect these new changes.
+**Update:** The layout now compiles with [LESS](http://lesscss.org/)! I changed the dropdowns to use code from Twitter's Bootstrap modified slightly for my design.
 
-### Responsive
+### Overview
 
-This layout was designed to be [responsive](http://www.alistapart.com/articles/responsive-web-design/). By default it will fill 100% of the viewport.
+This layout was designed to be [responsive](http://www.alistapart.com/articles/responsive-web-design/), lightweight (7.5 kb), accessible (508 compliant), and usable in IE7+, Chrome, Safari, Firefox 3.6+, and Opera. 
+
+### Layout: Fluid or Fixed
+
+Using LESS variables you can quickly modify the layout to be either fluid or fixed. Just set the @layout variable to either fluid or fixed in site.less. By default it is fluid.
+
+    @layout:            fluid;//fluid or fixed
+
+Then in these two blocks include a couple of mixins:
 
     div#footer, div#header, div#body {
-      /*width: expression(this.width > 1280 ? 1280: (this.width < 800 ? 800: true));
-	    max-width: 1280px;
-	    min-width: 800px;*/
-      
-    html, body, div#container, div#top, div#middle, div#bottom {
-      /*width: expression(this.width < 800 ? 800: true);
-	    min-width: 800px;*/
-    }
-      
-This will give the page a maximum width of 1280 pixels and a minimum width of 800 pixels. You can customize this however you wish. The header and footer will still visually extend to fill 100% of the viewport; only the contents will bounded by the max-width and min-width settings. Look at [my blog's header](http://www.linecomments.com) on a screen with a resolution greater than 1280 pixels wide to see what this looks like.
+        .layoutInner(@layout);//fixed or fluid with defaults.
+        ...
+        
+    div#footer, div#header, div#body {        
+        .layoutInner(@layout);//fixed or fluid with defaults.
+        ...
+
+This will result in a layout that expands to fill 100% of the viewport. You can also give it bounds by adding a couple of variables. Just uncomment these two lines in site.less:
+
+    @layoutMax:         1280px;//optional if @layout = fluid. default is no max.
+    @layoutMin:         800px;//optional if @layout = fluid. default is no min.
+    
+Then modify these to:
+
+    div#footer, div#header, div#body {
+        .layoutInner(@layout, @layoutMin, @layoutMax);
+        ...
+        
+    div#footer, div#header, div#body {        
+        .layoutOuter(@layout, @layoutMin);
+        ...
+
+This will give a layout that expands up to 1280px and contracts down to 800px.
+You can also create a fixed layout. Just set @layout to fixed. The default width is 1280px wide. But you can change it by setting an optional variable.
+
+    @layoutWidth:       600px;//optional if @layout = fixed. default is 1280px.
+
+Then modify these to:
+
+    div#footer, div#header, div#body {
+        .layoutInner(@layout, @layoutWidth);
+        ...
+        
+    div#footer, div#header, div#body {        
+        .layoutOuter(@layout, @layoutWidth);
+        ...
+
+**Note** The header and footer will still visually extend to fill 100% of the viewport; only the contents will bounded by the width settings. Look at [my blog's header](http://www.linecomments.com) on a screen with a resolution greater than 1280 pixels wide to see what this looks like.
 
 ### Mobile
 
