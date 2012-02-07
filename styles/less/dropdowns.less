@@ -53,7 +53,7 @@
 }
 .menu .caret {
   margin-top: .55em;
-  margin-left: .35em;
+  margin-left: .45em;
   *margin-top: .5em;
 }
 .menu:hover .caret, .menu > a:focus .caret {
@@ -63,10 +63,32 @@
   border-top: 4px solid #000 !important;
 }
 
+padding: .55em .8em .55em .8em;
+
 div#nav .menu.open > a {
     background-color: #F3F3F3;
     color: #000;
     border-left: 1px solid #000;
+    border-right: 1px solid #000;
+	padding-left: .8em - .063em;
+	padding-right: .8em - .063em;
+}
+
+div#nav .menu.open:first-child > a {
+    border-left: 0px solid #000;
+	padding-left: .8em;
+	padding-right: .8em - .063em;
+}
+
+div#nav .menu.open:last-child > a {
+    border-right: 0px solid #000;
+	padding-left: .8em - .063em;
+	padding-right: .8em;  
+}
+
+div#nav .menu.open:only-child > a {
+    border-right: 0px solid #000;
+    padding-left: .8em; 
 }
 
 // The dropdown menu (ul)
@@ -88,7 +110,7 @@ div#nav .menu.open > a {
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
   .border-radius(0 0 5px 5px);
-  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  .box-shadow(0 5px 7px rgba(0,0,0,.2));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -127,6 +149,10 @@ div#nav .menu.open > a {
     color: #000;
     white-space: nowrap;
   }
+}
+
+div#nav .menu.open:first-child .dropdown-menu {
+    left: -1px;
 }
 
 // Hover state
