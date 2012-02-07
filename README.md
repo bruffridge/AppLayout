@@ -52,7 +52,7 @@ Then modify these to:
         .layoutOuter(@layout, @layoutWidth);
         ...
 
-**Note** The header and footer will still visually extend to fill 100% of the viewport; only the contents will bounded by the width settings. Look at [my blog's header](http://www.linecomments.com) on a screen with a resolution greater than 1280 pixels wide to see what this looks like.
+**Note:** The header and footer will still visually extend to fill 100% of the viewport; only the contents will bounded by the width settings. Look at [my blog's header](http://www.linecomments.com) on a screen with a resolution greater than 1280 pixels wide to see what this looks like.
 
 ### Mobile
 
