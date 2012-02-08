@@ -6,7 +6,7 @@ This layout was designed to be [responsive](http://www.alistapart.com/articles/r
 
 ### Layout: Fluid or Fixed
 
-Using LESS variables you can quickly modify the layout to be either fluid or fixed. Just set the @layout variable to either fluid or fixed in site.less. By default it is fluid.
+Using LESS variables you can quickly modify the layout to be either fluid or fixed. Just set the ```@layout``` variable to either fluid or fixed in site.less. By default it is fluid.
 
     @layout:            fluid;//fluid or fixed
 
@@ -36,7 +36,7 @@ Then modify these to:
         ...
 
 This will give a layout that expands up to 1280px and contracts down to 800px.
-You can also create a fixed layout. Just set @layout to fixed. The default width is 1280px wide. But you can change it by setting an optional variable.
+You can also create a fixed layout. Just set ```@layout``` to fixed. The default width is 1280px wide. But you can change it by setting an optional variable.
 
     @layoutWidth:       600px;//optional if @layout = fixed. default is 1280px.
 
