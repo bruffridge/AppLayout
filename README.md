@@ -2,15 +2,15 @@
 
 ### Overview
 
-This layout was designed to be [responsive](http://www.alistapart.com/articles/responsive-web-design/), lightweight (7.5 kb), accessible (508 compliant), and usable in IE7+, Chrome, Safari, Firefox 3.6+, and Opera. 
+This layout was designed to be [responsive](http://www.alistapart.com/articles/responsive-web-design/), lightweight (7.5 kb), accessible (508 compliant), and usable in IE7+, Chrome, Safari, Firefox 3.6+, and Opera. It features a sticky footer that stays at the bottom of the page even if the content does not reach the bottom. When content goes below the fold the footer will follow the content and will only be visible if you scroll down to the bottom of the page.
 
 ### Layout: Fluid or Fixed
 
-Using LESS variables you can quickly modify the layout to be either fluid or fixed. Just set the ```@layout``` variable to either fluid or fixed in site.less. By default it is fluid.
+Using LESS variables you can quickly modify the layout to be either fluid or fixed. Just set the ```@layout``` variable to either fluid or fixed in variables.less. By default it is fluid.
 
     @layout:            fluid;//fluid or fixed
 
-Then in these two blocks include a couple of mixins:
+Then in these two blocks in site.less include a couple of mixins:
 
     div#footer, div#header, div#body {
         .layoutInner(@layout);//fixed or fluid with defaults.
@@ -20,12 +20,12 @@ Then in these two blocks include a couple of mixins:
         .layoutOuter(@layout);//fixed or fluid with defaults.
         ...
 
-This will result in a layout that expands to fill 100% of the viewport. You can also give it bounds by adding a couple of variables. Just uncomment these two lines in site.less:
+This will result in a layout that expands to fill 100% of the viewport. You can also give it bounds by adding a couple of variables. Just uncomment these two lines in variables.less:
 
     @layoutMax:         1280px;//optional if @layout = fluid. default is no max.
     @layoutMin:         800px;//optional if @layout = fluid. default is no min.
     
-Then modify these to:
+Then modify these in site.less to:
 
     div#footer, div#header, div#body {
         .layoutInner(@layout, @layoutMin, @layoutMax);
