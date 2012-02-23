@@ -1,0 +1,79 @@
+/* mixins */
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  background: @color; /* for non-css3 browsers */
+  background: -moz-linear-gradient(top, @start, @stop); /* FF 3.6+ */
+  background: -ms-linear-gradient(top, @start, @stop); /* IE10 */
+  background: -webkit-gradient(linear,
+                               left top,
+                               left bottom,
+                               color-stop(0, @start),
+                               color-stop(1, @stop)); /* Safari 4+, Chrome 2+ */
+  background: -webkit-linear-gradient(top, @start, @stop); /* Safari 5.1+, Chrome 10+ */
+  background: -o-linear-gradient(top, @start, @stop); /* Opera 11.10 */
+  /* IE6 & 7 may not applying the gradient if the element does not have layout. hasLayout can be made true by adding zoom:1, which is an IE property and ignored by other browsers. */
+  zoom:1;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start}', endColorStr='@{stop}')"; /* IE6 & IE7  */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start}', endColorStr='@{stop}')"; /* IE8+  */
+  background: linear-gradient(top, @start, @stop); /* the standard */
+}
+
+// Border Radius
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+// Drop shadows
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+// Webkit-style focus
+// ------------------
+.tab-focus() {
+  // Default
+  outline: thin dotted;
+  // Webkit
+  outline: 3px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+      -ms-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+
+.inlineblock() {
+    display:inline-block;
+    /* fix for IE 7 and below unsupport for inline-block */
+    zoom: 1;
+    *display: inline;
+}
+
+.maxminWidth(@max, @min) when not (@max = none) and not (@min = none) {
+    width: ~"expression(this.width > @{max} ? @{max}: (this.width < @{min} ? @{min}: true))";
+    max-width: @max;
+    min-width: @min;
+}
+
+.maxminWidth(@max, @min) { }
+
+.minWidth(@min) when not (@min = none) {
+    width: ~"expression(this.width < @{min} ? @{min}: true)";
+    min-width: @min;
+}
+
+.minWidth(@min) { }
+
+.maxWidth(@max) {
+    width: ~"expression(this.width > @{max} ? @{max}: true)";
+    max-width: @max;
+}

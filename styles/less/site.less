@@ -1,14 +1,3 @@
-@charset "utf-8";
-
-// Baseline grid
-@basefont:          14px;
-@baseline:          18px;
-@footerHeight:      2.4em;
-@layout:            fluid;//fluid or fixed
-//@layoutMax:         1280px;//optional if @layout = fluid. default is no max.
-//@layoutMin:         800px;//optional if @layout = fluid. default is no min.
-//@layoutWidth:       600px;//optional if @layout = fixed. default is 1280px.
-
 /* Default site styles. */
 
 /*for centering the page on high resolution screens*/
@@ -19,9 +8,9 @@ div#middle, div#top, div#bottom {
 div#footer, div#header, div#body {
 	//required @layout. optional @layoutMax, @layoutMin for @layout = fluid. optional @layoutWidth for @layout = fixed.
 	.layoutInner(@layout);//fixed or fluid with defaults.
-	//.layoutInner(@layout, @layoutMin, @layoutMax);//fluid with named params
+	//.layoutInner(@layout, @layoutMax, @layoutMin);//fluid with named params
 	//.layoutInner(@layout, @layoutWidth);//fixed with named param
-	position:relative;
+	//position:relative; //removing fixes the ie7 bugs where the dropdown appears below body content and the shifting logo. haven't seen any side effects yet.
 	margin: 0 auto;
 	text-align: left;
 }
@@ -33,11 +22,32 @@ html, body, div#container, div#top, div#middle, div#bottom {
 	//.layoutOuter(@layout, @layoutWidth);//fixed with named param
 }
 
+/* fixed header */
+
+/*
+div#top {
+	position:fixed;
+	top:0;
+	right:0;
+	left:0;
+	z-index: @zindexFixedNavbar;
+}
+
+div#middle{
+	padding-top:3.3em;
+}
+*/
+
+div#middle {
+	@shadow: 0 8px 3px -7px rgba(0, 0, 0, 0.25) inset;
+    .box-shadow(@shadow);
+}
+
 /* site styles */
 
 html, body {
 	background-color: #F3F3F3;
-	font-size: 95%; /* percent instead of em helps IE <=7 to scale text more moderately */
+	font-size: @baseFontSize;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -82,7 +92,6 @@ div#nav {
 div#nav > ul > li > a {
 	padding: .55em .8em .55em .8em;
 	text-decoration: none;
-	font-size: 1em;
 	color: #F3F3F3;
 	cursor: pointer;
 }
@@ -198,38 +207,17 @@ div#bottom {
   height:@footerHeight;
   position:absolute;
   bottom:0;
+  /* fixed footer */
+  /*
+position:fixed;
+  bottom:0;
+  right:0;
+  left:0;
+  z-index:2;
+*/
 }
 
 /* mixins */
-.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
-  background: @color; /* for non-css3 browsers */
-  background: -moz-linear-gradient(top, @start, @stop); /* FF 3.6+ */
-  background: -ms-linear-gradient(top, @start, @stop); /* IE10 */
-  background: -webkit-gradient(linear,
-                               left top,
-                               left bottom,
-                               color-stop(0, @start),
-                               color-stop(1, @stop)); /* Safari 4+, Chrome 2+ */
-  background: -webkit-linear-gradient(top, @start, @stop); /* Safari 5.1+, Chrome 10+ */
-  background: -o-linear-gradient(top, @start, @stop); /* Opera 11.10 */
-  /* IE6 & 7 may not applying the gradient if the element does not have layout. hasLayout can be made true by adding zoom:1, which is an IE property and ignored by other browsers. */
-  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start}', endColorStr='@{stop}')"; /* IE6 & IE7  */
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start}', endColorStr='@{stop}')"; /* IE8+  */
-  background: linear-gradient(top, @start, @stop); /* the standard */
-}
-
-.box-sizing(@box) {
-	-webkit-box-sizing: @box;
-    -moz-box-sizing: @box;
-    box-sizing: @box;
-}
-
-.inlineblock() {
-	display:inline-block;
-    /* fix for IE 7 and below unsupport for inline-block */
-    zoom: 1;
-    *display: inline;
-}
 
 .layoutInner(fluid, @max: none, @min: none) {
     .maxminWidth(@max, @min);
@@ -245,26 +233,6 @@ div#bottom {
 
 .layoutOuter(fixed, @min: 1280px) { 
     .minWidth(@min);
-}
-
-.maxminWidth(@max, @min) when not (@max = none) and not (@min = none) {
-	width: ~"expression(this.width > @{max} ? @{max}: (this.width < @{min} ? @{min}: true))";
-    max-width: @max;
-    min-width: @min;
-}
-
-.maxminWidth(@max, @min) { }
-
-.minWidth(@min) when not (@min = none) {
-    width: ~"expression(this.width < @{min} ? @{min}: true)";
-    min-width: @min;
-}
-
-.minWidth(@min) { }
-
-.maxWidth(@max) {
-    width: ~"expression(this.width > @{max} ? @{max}: true)";
-    max-width: @max;
 }
 
 /* fonts */

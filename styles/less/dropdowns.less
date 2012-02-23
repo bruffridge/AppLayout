@@ -1,32 +1,6 @@
 // DROPDOWN MENUS
 // --------------
 
-@white:                 #fff;
-
-// Z-index master list
-// Used for a bird's eye view of components dependent on the z-axis
-// Try to avoid customizing these :)
-@zindexDropdown:        1000;
-@zindexPopover:         1010;
-@zindexTooltip:         1020;
-@zindexFixedNavbar:     1030;
-@zindexModalBackdrop:   1040;
-@zindexModal:           1050;
-
-// Border Radius
-.border-radius(@radius: 5px) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
-}
-
-// Drop shadows
-.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
-  -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
-          box-shadow: @shadow;
-}
-
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .menu {
   position: relative;
@@ -63,7 +37,7 @@
   border-top: 4px solid #000 !important;
 }
 
-padding: .55em .8em .55em .8em;
+// todo: replace div#nav with a class .topnav
 
 div#nav .menu.open > a {
     background-color: #F3F3F3;
@@ -94,8 +68,8 @@ div#nav .menu.open:only-child > a {
 // The dropdown menu (ul)
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top:100%;
+  left:0;/* makes it look right in ie 7. */
   z-index: @zindexDropdown;
   float: left;
   display: none; // none by default, but block on "open" of the menu
@@ -114,8 +88,11 @@ div#nav .menu.open:only-child > a {
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
+  /* simulated drop shadow for ie 7 & 8 */
+  *border-right-width: 2px; /* for ie 7 */
+  *border-bottom-width: 2px; /* for ie 7 */
+  border-right-width: ~"2px\0/"; /* for ie 8 */
+  border-bottom-width: ~"2px\0/"; /* for ie 8 */
 
   // Allow for dropdowns to go bottom up (aka, dropup-menu)
   &.bottom-up {
@@ -160,7 +137,8 @@ div#nav .menu.open:first-child .dropdown-menu {
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   color: #F3F3F3;
-  background-color: #737373;
+  //background-color: #737373;
+  background-color: @linkColor;
   text-decoration: none;
 }
 
