@@ -1,3 +1,5 @@
+[See it LIVE on Github!](http://bruffridge.github.com/AppLayout)
+
 **Update:** The layout now compiles with [LESS](http://lesscss.org/)! I changed the dropdowns to use code from Twitter's Bootstrap modified slightly for my design.
 
 ### Overview
