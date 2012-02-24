@@ -1,4 +1,5 @@
-[See it LIVE on Github!](http://bruffridge.github.com/AppLayout)
+[**See it LIVE!**](http://bruffridge.github.com/AppLayout)<br />
+This demo is a view of the `gh-pages` branch of the repository. It is automatically updated as commits are made to the branch.
 
 **Update:** The layout now compiles with [LESS](http://lesscss.org/)! I changed the dropdowns to use code from Twitter's Bootstrap modified slightly for my design.
 
