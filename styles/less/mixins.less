@@ -19,6 +19,21 @@
   background: linear-gradient(top, @start, @stop); /* the standard */
 }
 
+.gradient_no_ie6n7(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  background: @color; /* for non-css3 browsers */
+  background: -moz-linear-gradient(top, @start, @stop); /* FF 3.6+ */
+  background: -ms-linear-gradient(top, @start, @stop); /* IE10 */
+  background: -webkit-gradient(linear,
+                               left top,
+                               left bottom,
+                               color-stop(0, @start),
+                               color-stop(1, @stop)); /* Safari 4+, Chrome 2+ */
+  background: -webkit-linear-gradient(top, @start, @stop); /* Safari 5.1+, Chrome 10+ */
+  background: -o-linear-gradient(top, @start, @stop); /* Opera 11.10 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start}', endColorStr='@{stop}')"; /* IE8+  */
+  background: linear-gradient(top, @start, @stop); /* the standard */
+}
+
 // Border Radius
 .border-radius(@radius: 5px) {
   -webkit-border-radius: @radius;

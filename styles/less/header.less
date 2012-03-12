@@ -1,0 +1,97 @@
+/* Don't need these styles for fixed header */
+#middle {
+	/* Don't need these styles for fixed header */
+	//@shadow: 0 8px 3px -7px rgba(0, 0, 0, 0.25) inset;
+    //.box-shadow(@shadow);
+	/* for fixed header you pad middle so the body content doesn't get covered by the header */
+	padding-top: @headerHeight;
+}
+
+/* header styles */
+
+#top {
+	//.gradient(#2E2E2E, #666666, #1D1D1D);// comment out this line if using a fixed header.
+	.fixedHeader();
+	/* simulated drop shadow for ie 7 & 8 */
+	   border-bottom: 0px solid #9a9a9a;
+	  *border-bottom-width: 2px; /* for ie 7 */
+	  border-bottom-width: ~"2px\0/"; /* for ie 8 */
+	#header {
+		.headerlogo { margin: @headerImgMargin }
+		.headerlogo, .headertitle { vertical-align: middle }
+		.headertitle {
+		    display: inline;
+		    margin-right: 3%;
+		    color: #E5E5E5;
+		    font-family: 'DroidSansRegular', Arial, Helvetica, sans-serif;
+		    font-size: 1.6em;
+        }
+    }
+}
+
+/* fixed header */
+
+.fixedHeader() {
+    .gradient_no_ie6n7(#2E2E2E, #666666, #1D1D1D);
+    @shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    .box-shadow(@shadow);
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    //z-index: @zindexFixedNavbar;
+}
+
+/* nav styles */
+
+#nav, #nav > ul, #nav > ul > li, #nav > ul > li > a {
+	.inlineblock();
+}
+
+#nav {
+	vertical-align: bottom;
+	background-color: #666666;
+	border-left: 1px solid #1d1d1d;
+	border-right: 1px solid #1d1d1d;
+	border-top: 1px solid #1d1d1d;
+}
+
+#nav > ul > li > a {
+	padding: .55em .8em .55em .8em;
+	text-decoration: none;
+	color: #F3F3F3;
+	cursor: pointer;
+}
+
+#nav > ul > li > a:hover, #nav > ul > li > a:focus {
+	background-color: #737373;
+	color: #FFFFFF;
+	
+}
+
+/* logout button */
+
+a#logout{
+    display:block;
+    float:right;
+    font-size:1.3em;
+    //line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#F3F3F3;
+    cursor:pointer;
+    padding:0em .5em .2em .5em;
+    margin:auto;
+	vertical-align: middle;
+}
+
+a#logout:hover, a#logout:focus{
+    color:#fff;
+	.gradient(#8F3429,#FB6B5D,#8F3429);
+	outline:none;
+}
+a#logout:active{
+	.gradient(#A33C31,#A33C31,#B35745);
+	outline:none;
+    color: darken(#f3f3f3, 10%);
+}

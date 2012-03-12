@@ -71,7 +71,7 @@ div#nav .menu.open:only-child > a {
   position: absolute;
   top:100%;
   left:0;/* makes it look right in ie 7. */
-  z-index: @zindexDropdown;
+  //z-index: @zindexDropdown;
   float: left;
   display: none; // none by default, but block on "open" of the menu
   min-width: 160px;
@@ -147,7 +147,7 @@ div#nav .menu.open:first-child .dropdown-menu {
 .menu.open {
   // IE7's z-index only goes to the nearest positioned ancestor, which would
   // make the menu appear below buttons that appeared later on the page
-  *z-index: @zindexDropdown;
+  // *z-index: @zindexDropdown;
 
   .dropdown-menu {
     display: block;

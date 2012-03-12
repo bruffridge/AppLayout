@@ -1,11 +1,15 @@
 /* Default site styles. */
 
+#bodyContent {
+    padding: 7px;
+}
+
 /*for centering the page on high resolution screens*/
-div#middle, div#top, div#bottom {
+#middle, #top, #bottom {
 	text-align: center;
 }
 
-div#footer, div#header, div#body {
+#footer, #header, #body {
 	//required @layout. optional @layoutMax, @layoutMin for @layout = fluid. optional @layoutWidth for @layout = fixed.
 	.layoutInner(@layout);//fixed or fluid with defaults.
 	//.layoutInner(@layout, @layoutMax, @layoutMin);//fluid with named params
@@ -15,32 +19,11 @@ div#footer, div#header, div#body {
 	text-align: left;
 }
 
-html, body, div#container, div#top, div#middle, div#bottom {
+html, body, #container, #top, #middle, #bottom {
 	//required @layout. optional @layoutMin for @layout = fluid. optional @layoutWidth for @layout = fixed.
 	.layoutOuter(@layout);//fixed or fluid with defaults.
 	//.layoutOuter(@layout, @layoutMin);//fluid with named param
 	//.layoutOuter(@layout, @layoutWidth);//fixed with named param
-}
-
-/* fixed header */
-
-/*
-div#top {
-	position:fixed;
-	top:0;
-	right:0;
-	left:0;
-	z-index: @zindexFixedNavbar;
-}
-
-div#middle{
-	padding-top:3.3em;
-}
-*/
-
-div#middle {
-	@shadow: 0 8px 3px -7px rgba(0, 0, 0, 0.25) inset;
-    .box-shadow(@shadow);
 }
 
 /* site styles */
@@ -58,85 +41,14 @@ a:hover { text-decoration:underline; }
 	display: none !important;
 }
 
-/* header styles */
-
-div#top {
-	.gradient(#2E2E2E, #666666, #1D1D1D);
-	div#header {
-		img { margin: 5px }
-		img, h1 { vertical-align: middle }
-		h1 {
-		    display: inline;
-		    margin-right: 3%;
-		    color: #E5E5E5;
-		    font-family: 'DroidSansRegular', Arial, Helvetica, sans-serif;
-		    font-size: 1.6em;
-        }
-    }
-}
-
-/* nav styles */
-
-div#nav, div#nav > ul, div#nav > ul > li, div#nav > ul > li > a {
-	.inlineblock();
-}
-
-div#nav {
-	vertical-align: bottom;
-	background-color: #666666;
-	border-left: 1px solid #1d1d1d;
-	border-right: 1px solid #1d1d1d;
-	border-top: 1px solid #1d1d1d;
-}
-
-div#nav > ul > li > a {
-	padding: .55em .8em .55em .8em;
-	text-decoration: none;
-	color: #F3F3F3;
-	cursor: pointer;
-}
-
-div#nav > ul > li > a:hover, div#nav > ul > li > a:focus {
-	background-color: #737373;
-	color: #FFFFFF;
-	
-}
-
-/* logout button */
-
-a#logout{
-    display:block;
-    float:right;
-    font-size:1.3em;
-    //line-height:130%;
-    text-decoration:none;
-    font-weight:bold;
-    color:#F3F3F3;
-    cursor:pointer;
-    padding:0em .5em .2em .5em;
-    margin:auto;
-	vertical-align: middle;
-}
-
-a#logout:hover, a#logout:focus{
-    color:#fff;
-	.gradient(#8F3429,#FB6B5D,#8F3429);
-	outline:none;
-}
-a#logout:active{
-	.gradient(#A33C31,#A33C31,#B35745);
-	outline:none;
-    color: darken(#f3f3f3, 10%);
-}
-
 /* footer styles */
 
-div#bottom {
+#bottom {
 	line-height:@footerHeight; /*vertically centers the text*/
 	border-top: 2px solid #9a9a9a;
 	background-color: #2e2e2e;
 	
-	div#footer {
+	#footer {
 	    color: #E5E5E5;
 	    font-size: .9em;
 	    overflow: auto;
@@ -144,18 +56,18 @@ div#bottom {
 		
 		a { color: #99CCFF; }
 		
-		div#footerLeftCont {
+		#footerLeftCont {
             float: left;
             width:100%;
 			
-			div#footerLeft {
+			#footerLeft {
 	            margin-right:14em;
 	            text-align:center;
 	            overflow: hidden;
             }
         }
 		
-		div#footerRight {
+		#footerRight {
 		    float:left;
 		    width:14em;
 		    margin-left:-14em;
@@ -183,7 +95,7 @@ div#bottom {
     }
 }
 
-div#footerRight a:hover span img, div#footerRight a:focus span img {
+#footerRight a:hover span img, #footerRight a:focus span img {
     margin-left: -2.455em;
 }
 
@@ -192,29 +104,23 @@ html, body {
 	height:100%;
 }
 
-div#container {
+#container {
 	height: ~"expression(this.height < 100% ? 100%: true)";
 	min-height:100%;
 	position:relative;
 }
 
-div#middle {
+#middle {
 	padding-bottom: @footerHeight;
 }
 
-div#bottom {
+#bottom {
   width:100%;
   height:@footerHeight;
   position:absolute;
   bottom:0;
-  /* fixed footer */
-  /*
-position:fixed;
-  bottom:0;
-  right:0;
-  left:0;
-  z-index:2;
-*/
+  /* this line fixes the footer */
+  .fixedFooter();
 }
 
 /* mixins */
@@ -233,6 +139,14 @@ position:fixed;
 
 .layoutOuter(fixed, @min: 1280px) { 
     .minWidth(@min);
+}
+
+.fixedFooter() {
+  position:fixed;
+  bottom:0;
+  right:0;
+  left:0;
+  //z-index:2;
 }
 
 /* fonts */
