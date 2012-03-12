@@ -55,6 +55,26 @@ Then modify these to:
 
 **Note:** The header and footer will still visually extend to fill 100% of the viewport; only the contents will bounded by the width settings. Look at [my blog's header](http://www.linecomments.com) on a screen with a resolution greater than 1280 pixels wide to see what this looks like.
 
+### Fixed header and footer
+
+To fix the header add the ```.fixedHeader``` mixin to the ```#top``` class in header.less and remove the ```.gradient``` mixin.
+
+    #top {
+        //.gradient(#2E2E2E, #666666, #1D1D1D);// comment out this line if using a fixed header.
+        .fixedHeader();
+        
+Now the header will be fixed but the body content will appear under the header. To fix this we have to add padding to ```#middle``` equal to the height of the header in header.less.
+
+    #middle {
+        /* for fixed header you pad middle so the body content doesn't get covered by the header */
+        padding-top: @headerHeight;
+        
+To fix the footer add the ```.fixedFooter``` mixin to ```#bottom``` in site.less.
+
+    #bottom {
+        /* this line fixes the footer */
+        .fixedFooter();
+
 ### Mobile
 
 Since it is responsive, it adjusts to look good on mobile devices as well. These two lines in index.htm's head section target mobile browsers.
